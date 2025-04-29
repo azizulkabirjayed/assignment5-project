@@ -1,0 +1,38 @@
+{% extends 'base_admin.html' %}
+{% block title %}Notice Board{% endblock %}
+{% block content %}
+<div class="">
+<h1>Notice Board</h1>
+
+{% if notices %}
+    <table>
+        <thead>
+            <tr>
+                <th>Notice Details</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for notice in notices %}
+                <tr>
+                    <td>
+                        <strong>{{ notice.title }}</strong><br>
+                        <em>Posted on: {{ notice.posted_at }}</em><br>
+                        {{ notice.content }}<br>
+                        
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'delete_notice' notice.notice_id %}">
+                            {% csrf_token %}
+                            <button type="submit" class="delete-btn">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No notices available.</p>
+{% endif %}
+</div>
+{% endblock %}

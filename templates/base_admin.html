@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin Dashboard{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Ubuntu&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="{% static 'images/administrator.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <!-- Primary Navigation (Logo, Title, Logout) -->
+    <nav class="primary-nav" role="navigation" aria-label="Primary navigation">
+        <ul role="list">
+            <li>
+                <a href="{% url 'index' %}" class="nav-link-title" aria-label="Bracu Classroom Home">
+                    <img src="{% static 'images/classroom.png' %}" alt="Bracu Logo">
+                    <span>Bracu Classroom</span>
+                </a>
+            </li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+        </ul>
+    </nav>
+
+    <!-- Secondary Navigation (Admin Links) -->
+    <nav class="secondary-nav" role="navigation" aria-label="Secondary navigation">
+        <ul role="list">
+            <li><a href="{% url 'notice_board' %}" id="nav-notice-board">Notice Board</a></li>
+            <li><a href="{% url 'add_notice' %}" id="nav-add-notice">Add Notice</a></li>
+            <li><a href="{% url 'add_faculty' %}" id="nav-add-faculty">Add Faculty</a></li>
+            <li><a href="{% url 'faculty_list' %}" id="nav-faculty-list">Faculty List</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="{{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Bracu Classroom. All Rights Reserved.</p>
+        <p>Contact us: <a href="mailto:bracuclassroom@example.com" class="footer-link">bracuclassroom@example.com</a> | +880-1234-567890</p>
+        <p>Address: Kha 224 Pragati Sarani, Merul Badda, Dhaka 1212, Bangladesh</p>
+        <div class="footer-social">
+            <p>Follow us:</p>
+            <div class="footer-social-icons">
+                <a href="https://facebook.com/bracuclassroom" target="_blank" aria-label="Facebook">
+                    <img src="{% static 'images/facebook.png' %}" alt="Facebook Logo" class="footer-social-icon">
+                </a>
+                <a href="https://twitter.com/bracuclassroom" target="_blank" aria-label="Twitter">
+                    <img src="{% static 'images/twitter.png' %}" alt="Twitter Logo" class="footer-social-icon">
+                </a>
+                <a href="https://instagram.com/bracuclassroom" target="_blank" aria-label="Instagram">
+                    <img src="{% static 'images/instagram.png' %}" alt="Instagram Logo" class="footer-social-icon">
+                </a>
+                <a href="https://linkedin.com/company/bracuclassroom" target="_blank" aria-label="LinkedIn">
+                    <img src="{% static 'images/linkedin.png' %}" alt="LinkedIn Logo" class="footer-social-icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

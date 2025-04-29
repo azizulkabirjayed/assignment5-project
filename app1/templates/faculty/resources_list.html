@@ -1,0 +1,45 @@
+{% extends 'base_faculty.html' %}
+
+{% block title %}Resources List{% endblock %}
+
+{% block content %}
+<div class="">
+    <h2 class="mb-4">Your Resources</h2>
+
+
+    {% if classroom_resources %}
+        {% for classroom, resources in classroom_resources.items %}
+            {% if resources %}
+                
+                    <table class="request-table">
+                    <caption>Classroom: {{ classroom.name }} (ID: {{ classroom.classroom_id }})</caption>
+                    <thead>
+                        <tr>
+                            <th>Resource ID</th>
+                            <th>Title</th>
+                            <th>File URL</th>
+                            <th>Description</th>
+                            <th>Uploaded At</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for resource in resources %}
+                            <tr>
+                                <td>{{ resource.resource_id }}</td>
+                                <td>{{ resource.title }}</td>
+                                <td><a href="{{ resource.file_url }}" target="_blank" class="text-primary">View File</a></td>
+                                <td>{{ resource.description|default:"No description" }}</td>
+                                <td>{{ resource.uploaded_at|date:"Y-m-d H:i" }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="alert alert-info">No resources found for Classroom: {{ classroom.name }} (ID: {{ classroom.classroom_id }}).</p>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p class="alert alert-info">You have not created any classrooms or resources yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

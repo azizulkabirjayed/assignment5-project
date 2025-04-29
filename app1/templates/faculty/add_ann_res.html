@@ -1,0 +1,36 @@
+{% extends 'base_faculty.html' %}
+
+{% block title %}Manage Announcements and Resources{% endblock %}
+
+{% block content %}
+<div class="">
+    <h2 class="mb-4">Your Classrooms</h2>
+
+
+    {% if classrooms %}
+    <table class="request-table">
+            <thead>
+                <tr>
+                    <th>Classroom ID</th>
+                    <th>Classroom Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for classroom in classrooms %}
+                    <tr>
+                        <td>{{ classroom.classroom_id }}</td>
+                        <td>{{ classroom.name }}</td>
+                        <td>
+                            <a href="{% url 'ann_form' classroom_id=classroom.classroom_id %}" class="delete-btn">Add Announcement</a>
+                            <a href="{% url 'res_form' classroom_id=classroom.classroom_id %}" class="delete-btn">Add Resources</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-info">You have not created any classrooms yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

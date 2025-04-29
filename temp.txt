@@ -1,0 +1,220 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+<body>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+{% include "mymenu.html" %}
+
+<h1>Welcome</h1>
+
+<p>This is my web site.</p>
+
+<p>Check out mymenu.html to see the HTML content of the include.</p>
+
+</body>
+</html> 
+
+
+
+The extends tag allows you to add a parent template for the current template.
+This means that you can have one master page that acts like a parent for all other pages:
+{% extends 'mymaster.html' %}
+
+{% block mymessage %}
+  <p>This page has a master page</p>
+{% endblock %} 
+
+
+
+base.html-static/css/styles.css----static/js/scripts.js
+CSE (Computer Science & Engineering) Department
+CSE101 - Introduction to Programming An introductory course focusing on basic programming concepts and problem-solving techniques.
+
+CSE201 - Data Structures and Algorithms Explores fundamental data structures and algorithms for efficient data management and problem-solving.
+
+CSE301 - Computer Architecture Studies the design and organization of computer systems, including processors and memory.
+
+ 
+
+ 
+
+EEE (Electrical & Electronic Engineering) Department
+EEE101 - Circuit Analysis Fundamentals of electrical circuits, including Ohm's Law, Kirchhoff's laws, and network theorems.
+
+EEE201 - Digital Logic Design Design and analysis of digital circuits using logic gates and Boolean algebra.
+
+EEE301 - Signals and Systems Introduction to continuous and discrete-time signals and systems analysis.
+
+
+
+EEE501 - Power Systems Covers generation, transmission, and distribution of electrical power.
+
+Microbiology Department
+MIC101 - General Microbiology Introduction to microorganisms, their classification, and their role in health and disease.
+
+MIC201 - Medical Microbiology Focuses on pathogenic microorganisms and their impact on human health.
+
+MIC301 - Environmental Microbiology Studies microorganisms in natural environments and their ecological roles.
+
+MIC401 - Industrial Microbiology Explores the use of microorganisms in industrial processes, including fermentation and biotechnology.
+
+MIC501 - Immunology Covers the immune system's structure and function, including immune responses and disorders.
+
+English Department
+ENG101 - English Fundamentals Develops basic English language skills, including reading, writing, listening, and speaking.
+
+ENG201 - English Composition Focuses on academic writing skills, including essay writing and research papers.
+
+ENG301 - English Literature Studies major works of English literature, including poetry, drama, and prose.
+
+ENG401 - Applied Linguistics Explores the scientific study of language and its practical applications.
+
+ENG501 - Advanced English Writing Enhances advanced writing skills for professional and academic purposes.
+
+
+
+
+
+
+
+
+I assume you're asking for 10 sample announcements for the "Create Announcement" form shown in the image, which is for a class labeled "ID: 9 - ECO301 - Microeconomics." Since the form has fields for "Title" and "Content," I'll provide 10 announcements with appropriate titles and content for a Microeconomics class. Let me know if you'd like something different!
+
+Here are 10 sample announcements:
+
+1. **Title:** 
+   **Content:** 
+
+2. **Title:** Assignment 1 Due Date Reminder  
+   **Content:** Assignment 1 on Supply and Demand is due by April 30, 2025, at 11:59 PM. Submit your work via the online portal.
+
+3. **Title:** Guest Lecture on Market Structures  
+   **Content:** We will have a guest lecturer, Dr. Smith, discussing market structures on May 2, 2025, at 2:00 PM. Attendance is highly recommended.
+
+4. **Title:** Office Hours Update  
+   **Content:** My office hours this week will be on Wednesday, April 30, from 1:00 PM to 3:00 PM. Feel free to drop by with any questions about elasticity concepts.
+
+5. **Title:** Reading Assignment for Week 5  
+   **Content:** Please read Chapter 6 on Consumer Behavior by May 3, 2025. We’ll discuss utility maximization in class.
+
+6. **Title:** Group Project Guidelines  
+   **Content:** Group projects on market analysis are due on May 15, 2025. Ensure your team submits a 5-page report and a presentation.
+
+7. **Title:** Class Cancellation – April 28  
+   **Content:** Class on April 28, 2025, is canceled due to a faculty meeting. Use this time to catch up on your readings.
+
+8. **Title:** Extra Credit Opportunity  
+   **Content:** An extra credit quiz on cost curves will be available online from May 1 to May 3, 2025. It’s worth 5% of your final grade.
+
+9. **Title:** Review Session for Midterm  
+   **Content:** A review session for the midterm will be held on May 3, 2025, at 3:00 PM in Room 101. Bring your questions!
+
+10. **Title:** New Resource on Game Theory  
+    **Content:** I’ve uploaded a new PDF on game theory basics to the course portal. Please review it before our next class on May 6, 2025.
+
+Let me know if you'd like adjustments or more details!
+
+
+
+
+
+????????????faculty
+Faculty 1:
+First Name: Alice
+Last Name: Smith
+Username: alicesmith01
+Email: alice.smith@university.edu
+Password: Teach@2025
+Confirm Password: Teach@2025
+
+Faculty 2:
+First Name: Robert
+Last Name: Johnson
+Username: robertj02
+Email: robert.johnson@university.edu
+Password: Prof2025!
+Confirm Password: Prof2025!
+
+Faculty 3:
+First Name: Emily
+Last Name: Davis
+Username: emilydavis03
+Email: emily.davis@university.edu
+Password: Edu@2025
+Confirm Password: Edu@2025
+
+Faculty 4:
+First Name: Michael
+Last Name: Brown
+Username: michaelb04
+Email: michael.brown@university.edu
+Password: Faculty$2025
+Confirm Password: Faculty$2025
+
+Faculty 5:
+First Name: Sarah
+Last Name: Wilson
+Username: sarahw05
+Email: sarah.wilson@university.edu
+Password: Acad2025#
+Confirm Password: Acad2025#
+
+Faculty 6:
+First Name: David
+Last Name: Clark
+Username: davidclark06
+Email: david.clark@university.edu
+Password: Teach!2025
+Confirm Password: Teach!2025
+
+Faculty 7:
+First Name: Linda
+Last Name: Martinez
+Username: lindam07
+Email: linda.martinez@university.edu
+Password: Prof@2025
+Confirm Password: Prof@2025
+
+Faculty 8:
+First Name: James
+Last Name: Lewis
+Username: jameslewis08
+Email: james.lewis@university.edu
+Password: Edu2025$
+Confirm Password: Edu2025$
+
+Faculty 9:
+First Name: Patricia
+Last Name: Walker
+Username: patriciaw09
+Email: patricia.walker@university.edu
+Password: Faculty#2025
+Confirm Password: Faculty#2025
+
+Faculty 10:
+First Name: Thomas
+Last Name: Harris
+Username: thomash10
+Email: thomas.harris@university.edu
+Password: Acad@2025
+Confirm Password: Acad@2025
+
+
+
+
+
+
+
+??????????????student and admin 
+username and passwords
+admin:admin,admin123
+faculty:faculty1,faculty123
+student:nahid,nahid123

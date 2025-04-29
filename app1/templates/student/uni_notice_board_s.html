@@ -1,0 +1,22 @@
+{% extends 'base_student.html' %}
+
+{% block title %}University Notice Board{% endblock %}
+
+{% block student_content %}
+<div class="">
+    <h2>University Notice Board</h2>
+    {% if notices %}
+        <ul class="announcement-list">
+            {% for notice in notices %}
+                <li>
+                    <strong>{{ notice.title }}</strong><br>
+                    <em>Posted on: {{ notice.posted_at }}</em><br>
+                    {{ notice.content }}<br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-items">No notices available.</p>
+    {% endif %}
+</div>
+{% endblock %}

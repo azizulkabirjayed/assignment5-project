@@ -1,0 +1,42 @@
+{% extends 'base_faculty.html' %}
+{% block title %}{% endblock %}
+{% block content %}
+<div class="">
+<h1>Your Announcements</h1>
+
+{% if classroom_announcements %}
+    {% for classroom, announcements in classroom_announcements.items %}
+        <table class="request-table">
+            <caption>Classroom ID: {{ classroom.classroom_id }} - {{ classroom.name }}</caption>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Content</th>
+                    <th>Posted On</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for announcement in announcements %}
+                    <tr>
+                        <td>{{ announcement.title }}</td>
+                        <td class="content" title="{{ announcement.content }}">{{ announcement.content }}</td>
+                        <td>{{ announcement.posted_at }}</td>
+                        <td>
+                            <form method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="announcement_id" value="{{ announcement.announcement_id }}">
+                                <button type="submit" class="delete-btn">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+{% else %}
+    <p class="no-announcements">No announcements found.</p>
+{% endif %}
+</div>
+
+{% endblock %}

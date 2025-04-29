@@ -1,0 +1,49 @@
+{% extends 'base_student.html' %}
+
+{% block title %}Add Classroom Request{% endblock %}
+
+{% block student_content %}
+<div class="">
+    <h2>Add Classroom Request</h2>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Classroom ID</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classroom in classrooms %}
+                <tr>
+                    <td>{{ classroom.classroom_id }}</td>
+                    <td>{{ classroom.name }}</td>
+                    <td>
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="classroom_id" value="{{ classroom.classroom_id }}">
+                            <button type="submit" name="join" class="btn btn-primary"
+                                {% if classroom.classroom_id in requested_classrooms %}
+                                    disabled
+                                {% endif %}>
+                                {% if classroom.classroom_id in requested_classrooms %}
+                                    Requested
+                                {% else %}
+                                    Add
+                                {% endif %}
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">No classrooms available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base_faculty.html' %}
+{% block title %}Add Attendance{% endblock %}
+{% block content %}
+<div>
+    <h1>Add Attendance</h1>
+
+    {% if classrooms %}
+        <table class="request-table">
+            <thead>
+                <tr>
+                    <th>Classroom ID</th>
+                    <th>Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for classroom in classrooms %}
+                    <tr>
+                        <td>{{ classroom.classroom_id }}</td>
+                        <td>{{ classroom.name }}</td>
+                        <td>
+                            <a href="{% url 'att_form' classroom.classroom_id %}" class="delete-btn">Take Attendance for Today</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No classrooms found. Please create a classroom first.</p>
+    {% endif %}
+</div>
+{% endblock %}

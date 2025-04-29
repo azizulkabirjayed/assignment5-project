@@ -1,0 +1,36 @@
+{% extends 'base_faculty.html' %}
+{% block title %}Attendance List{% endblock %}
+{% block content %}
+<div>
+    <h1>Attendance List</h1>
+
+    {% if attendance_records %}
+            <table class="request-table">
+            <thead>
+                <tr>
+                    <th>Classroom ID</th>
+                    <th>Classroom Name</th>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Status</th>
+                    <th>Session Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in attendance_records %}
+                    <tr>
+                        <td>{{ record.classroom_id.classroom_id }}</td>
+                        <td>{{ record.classroom_id.name }}</td>
+                        <td>{{ record.student_id.id }}</td>
+                        <td>{{ record.student_id.username }}</td>
+                        <td>{{ record.midday_status|title }}</td>
+                        <td>{{ record.session_date }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No attendance records found.</p>
+    {% endif %}
+</div>
+{% endblock %}

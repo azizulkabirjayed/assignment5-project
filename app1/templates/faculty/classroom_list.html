@@ -1,0 +1,41 @@
+{% extends 'base_faculty.html' %}
+
+{% block title %}Your Classrooms{% endblock %}
+
+{% block content %}
+<div class="">
+    <h1 class="mb-4">Your Classrooms</h1>
+
+
+    {% if classrooms %}
+    <table class="request-table">
+            <thead>
+                <tr>
+                    <th>Classroom ID</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for classroom in classrooms %}
+                    <tr>
+                        <td>{{ classroom.classroom_id }}</td>
+                        <td>{{ classroom.name }}</td>
+                        <td>{{ classroom.description|default:"No description" }}</td>
+                        <td>
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="hidden" name="classroom_id" value="{{ classroom.classroom_id }}">
+                                <button type="submit" name="delete" class="delete-btn">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="alert alert-info">You have not created any classrooms yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

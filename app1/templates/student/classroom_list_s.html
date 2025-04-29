@@ -1,0 +1,26 @@
+{% extends 'base_student.html' %}
+
+{% block title %}Classroom List{% endblock %}
+
+{% block student_content %}
+
+
+
+
+<div class="">
+    <h2>Classroom List</h2>
+    {% if classrooms %}
+        <ul class="classroom-list">
+            {% for classroom in classrooms %}
+                <li><strong>{{ classroom.name }}</strong><br>
+                <em>(Created: {{ classroom.created_at|date:"F d, Y" }})</em><br>
+                {{ classroom.description|truncatewords:30 }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-items">You are not enrolled in any classrooms.</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

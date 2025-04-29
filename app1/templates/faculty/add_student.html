@@ -1,0 +1,54 @@
+{% extends 'base_faculty.html' %}
+{% block title %}Manage Student Requests{% endblock %}
+{% block content %}
+
+<div class="">
+    <h1>Manage Student Requests</h1>
+
+
+
+    {% if classroom_requests %}
+        {% for classroom, requests in classroom_requests.items %}
+            {% if requests %}
+                <table class="request-table">
+                    <caption>Classroom ID: {{ classroom.classroom_id }} - {{ classroom.name }}</caption>
+                    <thead>
+                        <tr>
+                            <th>Student Username</th>
+                            <th>Requested On</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in requests %}
+                            <tr>
+                                <td>{{ request.student_id.username }}</td>
+                                <td>{{ request.requested_at }}</td>
+                                <td class="actions">
+                                    <form method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="request_id" value="{{ request.request_id }}">
+                                        <input type="hidden" name="classroom_id" value="{{ classroom.classroom_id }}">
+                                        <button type="submit" class="approve-btn" name="action" value="approve">Approve</button>
+                                    </form>
+                                    <form method="post" style="display:inline;">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="request_id" value="{{ request.request_id }}">
+                                        <input type="hidden" name="classroom_id" value="{{ classroom.classroom_id }}">
+                                        <button type="submit" class="reject-btn" name="action" value="reject">Reject</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="no-requests">No pending student requests for Classroom ID: {{ classroom.classroom_id }} - {{ classroom.name }}</p>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p class="no-requests">No classrooms or pending student requests found.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

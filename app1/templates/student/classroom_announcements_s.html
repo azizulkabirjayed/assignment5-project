@@ -1,0 +1,20 @@
+{% extends 'base_student.html' %}
+
+{% block title %}Classroom Announcements{% endblock %}
+
+{% block student_content %}
+<div class="">
+    <h2>Classroom Announcements</h2>
+    {% if announcements %}
+        <ul class="announcement-list">
+            {% for announcement in announcements %}
+            <li><strong>{{ announcement.title }}</strong><br>
+                <em>Posted: {{ announcement.posted_at|date:"F d, Y" }})</em><br>
+                {{ announcement.content|truncatewords:30 }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-items">No announcements available.</p>
+    {% endif %}
+</div>
+{% endblock %}

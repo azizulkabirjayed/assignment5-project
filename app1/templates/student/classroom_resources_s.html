@@ -1,0 +1,22 @@
+{% extends 'base_student.html' %}
+
+{% block title %}Classroom Resources{% endblock %}
+
+{% block student_content %}
+<div class="">
+    <h2>Classroom Resources</h2>
+    {% if resources %}
+        <ul class="resource-list">
+            {% for resource in resources %}
+            <li>
+                <strong><a href="{{ resource.file_url }}">{{ resource.title }}</a></strong><br>
+                <em>({{ resource.classroom_id.name }})</em><br>
+                <em>(Uploaded: {{ resource.uploaded_at|date:"F d, Y" }})</em><br>
+                {{ resource.description|truncatewords:30 }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="no-items">No resources available.</p>
+    {% endif %}
+</div>
+{% endblock %}
