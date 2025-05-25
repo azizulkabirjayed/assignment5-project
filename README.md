@@ -31,8 +31,8 @@
 
 | Frontend            | Backend  | Database  |
 |---------------------|----------|-----------|
-|- Vanilla HTML       |- Django  | - SQLite  |
-|- Vanilla CSS        |          |           |
+|-Vanilla HTML       |- Django  | - SQLite  |
+|* Vanilla CSS        |          |           |
 |- Vanilla JavaScript |          |           |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
